@@ -31,4 +31,10 @@ eureka:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
 
+jwt:
+  secret: ${JWT_SECRET}
+  access-token-expiration: 900000        # 15 minutes in milliseconds
+  refresh-token-expiration: 604800000    # 7 days in milliseconds
+  reset-token-expiration: 900000         # 15 minutes in milliseconds
+
 
