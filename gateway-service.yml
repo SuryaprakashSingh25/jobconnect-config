@@ -16,8 +16,6 @@ spring:
           uri: lb://job-auth-service
           predicates:
             - Path=/api/auth/**
-          filters:
-            - RewritePath=/api/auth/(?<segment>.*), /${segment}
         - id: user-profile-service
           uri: lb://user-profile-service
           predicates:
@@ -41,9 +39,6 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     fetch-registry: true
     register-with-eureka: true
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${server.port}
 
 jwt:
   secret: ${JWT_SECRET}
