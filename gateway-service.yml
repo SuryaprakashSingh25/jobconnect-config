@@ -16,6 +16,8 @@ spring:
           uri: lb://job-auth-service
           predicates:
             - Path=/api/auth/**
+          filters:
+            - RewritePath=/api/auth/(?<segment>.*), /${segment}
         - id: user-profile-service
           uri: lb://user-profile-service
           predicates:
@@ -45,9 +47,4 @@ eureka:
 
 jwt:
   secret: ${JWT_SECRET}
-
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
-    reactor.netty.http.client: DEBUG
 
