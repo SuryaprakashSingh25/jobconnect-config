@@ -46,3 +46,8 @@ eureka:
 jwt:
   secret: ${JWT_SECRET}
 
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
+
